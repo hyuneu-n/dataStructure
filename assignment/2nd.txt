@@ -1,0 +1,96 @@
+자료구조 2차과제
+
+주제 1: 5장 교재에 있는 “C 배열에 의한 리스트”에 정의된 함수 구현 및 동작 확인
+
+#define MAX 100
+typedef struct { int Count; 
+   int Data[MAX]; 
+} listType; 
+void Insert(listType *Lptr, int Position, int Item); 
+// Lptr이 가리키는 리스트의 Position 번째 원소로 Item 값을 삽입
+// Position은 1번째부터 시작함
+void Delete(listType *Lptr, int Position); 
+// Lptr이 가리키는 리스트의 Position 번째 원소를 삭제
+void Retrieve(listType *Lptr, int Position, int *ItemPtr); 
+// Lptr이 가리키는 리스트의 Position 번째 원소를 읽어서 ItemPtr이 가리키는 곳에 저장할 것
+void Init(listType *Lptr); 
+// Lptr이 가리키는 리스트를 초기화할 것. 즉, 리스트의 Count 값을 0으로 할 것
+bool IsEmpty(listType *Lptr); 
+// Lptr이 가리키는 리스트가 비어있으면 True를 그렇지 않으면 False를 반환할 것
+int Length(listType *Lptr);
+// Lptr이 가리키는 리스트에 저장되어 있는 원소 갯수를 반환할 것
+
+교재에 있는 위 내용을 listA.h 파일에 저장할 것.
+
+listA.h에 정의되어 있는 함수들을 모두 구현하여 listAFunctions.c 파일에 저장할 것.
+
+아래 내용을 실행할 수 있도록 main 함수를 구현하여 listMain.c 파일에 저장할 것.
+- 리스트를 L 이름으로 생성할 것(예 listType L;)
+- Init( ) 함수를 이용하여 리스트 L을 초기화할 것.
+- 1부터 10까지 숫자 10개를 리스트 L의 1번째부터 10번째까지 원소로 Insert( ) 함수를 이용하여 저장할 것.
+- 위 Insert를 진행한 후 리스트 L에 저장된 원소들을 1 번째부터 마지막 번째까지 순서대로 출력할 것. 마지막 번째 확인은 반드시 Length( ) 함수를 사용할 것. 출력은 반드시 Retrieve( ) 함수를 사용할 것.
+- 리스트 L에서 3, 6, 9 번째 원소를 Delete( ) 함수를 이용하여 삭제할 것.
+- 위 Delete를 진행한 후 리스트 L에 저장된 숫자들을 1 번째부터 마지막 번째까지 순서대로 출력할 것. 마지막 번째 확인은 반드시 Length( ) 함수를 사용할 것. 출력은 반드시 Retrieve( ) 함수를 사용할 것.
+
+주의사항
+- 반드시 listA.h, listAFunctions.c, listAMain.c 파일을 만들어 구현할 것. 
+- listAFunctions.c와 listAMain.c를 컴파일 후 생성된 Object file listAFunction.o, listAMain.o를 Linking 하여 실행파일을 만드는 과정은 각자 학습할 것.
+
+====================
+주제 2: 5장 교재에 있는 “C 연결 리스트에 의한 리스트”에 정의된 함수 구현 및 동작 확인
+
+typedef structure nodeRecord {
+   int Data;
+   nodeRecord * Next;
+} node;
+typedef node * Nptr;
+typedef structure {
+   int Count;
+   Nptr Head;
+} listType;
+
+void Insert(listType *Lptr, int Position, int Item); 
+// Lptr이 가리키는 리스트의 Position 번째 원소로 Item 값을 삽입
+// Position은 1번째부터 시작함
+void Delete(listType *Lptr, int Position); 
+// Lptr이 가리키는 리스트의 Position 번째 원소를 삭제
+void Retrieve(listType *Lptr, int Position, int *ItemPtr); 
+// Lptr이 가리키는 리스트의 Position 번째 원소를 읽어서 ItemPtr이 가리키는 곳에 저장할 것
+void Init(listType *Lptr); 
+// Lptr이 가리키는 리스트를 초기화할 것. 즉, 리스트의 Count 값을 0으로 할 것
+bool IsEmpty(listType *Lptr); 
+// Lptr이 가리키는 리스트가 비어있으면 True를 그렇지 않으면 False를 반환할 것
+int Length(listType *Lptr);
+// Lptr이 가리키는 리스트에 저장되어 있는 원소 갯수를 반환할 것
+
+교재에 있는 위 내용을 listP.h 파일에 저장할 것.
+
+listP.h에 정의되어 있는 함수들을 모두 구현하여 listPFunctions.c 파일에 저장할 것.
+
+아래 내용을 실행할 수 있도록 main 함수를 구현하여 listPMain.c 파일에 저장할 것.
+- 리스트를 L 이름으로 생성할 것(예 listType L;)
+- Init( ) 함수를 이용하여 리스트 L을 초기화할 것.
+- 1부터 10까지 숫자 10개를 리스트 L의 1번째부터 10번째까지 원소로 Insert( ) 함수를 이용하여 저장할 것.
+- 위 Insert를 진행한 후 리스트 L에 저장된 원소들을 1 번째부터 마지막 번째까지 순서대로 출력할 것. 마지막 번째 확인은 반드시 Length( ) 함수를 사용할 것. 출력은 반드시 Retrieve( ) 함수를 사용할 것.
+- 리스트 L에서 3, 6, 9 번째 원소를 Delete( ) 함수를 이용하여 삭제할 것.
+- 위 Delete를 진행한 후 리스트 L에 저장된 숫자들을 1 번째부터 마지막 번째까지 순서대로 출력할 것. 마지막 번째 확인은 반드시 Length( ) 함수를 사용할 것. 출력은 반드시 Retrieve( ) 함수를 사용할 것.
+
+주의사항
+- 반드시 listP.h, listPFunctions.c, listPMain.c 파일을 만들어 구현할 것. 
+- listPFunctions.c와 listPMain.c를 컴파일 후 생성된 Object file listPFunction.o, listPMain.o를 Linking 하여 실행파일을 만드는 과정은 각자 학습할 것.
+
+======================
+listA.h, listAFunctions.c, listAMain.c 파일 내용을 보고서에 포함시킬 것 
+프로그램 실행결과 Screen Capture 한 내용을 보고서에 포함시킬 것
+
+listP.h, listPFunctions.c, listPMain.c 파일 내용을 보고서에 포함시킬 것 
+프로그램 실행결과 Screen Capture 한 내용을 보고서에 포함시킬 것
+
+과제 수행 소감을 반드시 보고서에 포함시킬 것
+
+보고서 내용을 PDF 파일로 변환하여 제출할 것. 보고서 내용 확인에 어려움이 있는 경우 미제출로 처리함.
+
+파일명은 “자료구조-2차과제-학번-성명.pdf” 형식으로 할 것
+
+제출기한: 2024년 4월 19일 23시 59분
+이번 과제부터는 기한을 넘겨 제출하여 ‘누락됨’ 상태가 되는 경우 미제출로 처리함. 마감시간 임박하여 제출하지 않도록 할 것.
